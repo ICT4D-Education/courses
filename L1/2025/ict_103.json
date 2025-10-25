@@ -1,5 +1,65 @@
 {
   "courseId": "ICT103",
   "courseTitle": "Programmation en C",
-  "chapters": []
+  "chapters": [
+    {
+  "courseId": "ICT103",
+  "courseTitle": "Programmation en C",
+  "chapterId": "ch1",
+  "chapterTitle": "Les bases solides en C",
+  "lessons": [
+    {
+      "lessonId": "l1",
+      "title": "Pourquoi apprendre le C en 2025 ?",
+      "content": [
+        { "type": "title", "value": "Pourquoi apprendre le C en 2025 ?" },
+        { "type": "text", "value": "Le langage **C** reste un pilier historique et pratique de l’informatique. Il permet de comprendre *comment fonctionnent réellement la mémoire* et la chaîne complète de compilation. Savoir programmer en C donne une base solide pour aborder l’embarqué, les systèmes d’exploitation, et l’optimisation." },
+        { "type": "note", "value": "Ce cours s'adresse aux étudiants débutants à intermédiaires (L1→L3). On commence par les bases, puis on monte progressivement en complexité." },
+        { "type": "smallTitle", "value": "Objectifs pédagogiques" },
+        { "type": "text", "value": "À la fin de ce chapitre vous serez capable de :\n- Écrire et compiler un programme minimal en C.\n- Expliquer la chaîne de compilation (préprocesseur → compilation → linkage).\n- Comprendre la notion de **fichier source**, **objet** et **exécutable**.\n- Utiliser un éditeur simple et lancer la compilation depuis un terminal." },
+        { "type": "title", "value": "La chaîne de compilation (vue d'ensemble)" },
+        { "type": "text", "value": "Étapes :\n1) **Préprocessing** (`#include`, `#define`),\n2) **Compilation** (.c → .o),\n3) **Linking** (.o → exécutable). \nChaque étape produit des artefacts utiles (préprocessed source, objets) et peut être contrôlée via des flags." },
+        { "type": "code", "language": "bash", "value": "gcc -Wall -Wextra -std=c11 -c main.c -o main.o\ngcc main.o -o main" },
+        { "type": "smallTitle", "value": "Premier programme : Hello world" },
+        { "type": "code", "language": "c", "value": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Bonjour, monde !\\n\");\n    return 0;\n}" },
+        { "type": "text", "value": "Explication : `#include <stdio.h>` inclut la déclaration de `printf`. `main` est le point d’entrée. `return 0;` indique un succès." },
+        { "type": "exercise", "value": "Écrivez un programme C qui affiche votre nom et l'âge : utilisez `printf` et testez-le.", "indication": "Compilez avec `gcc -std=c11 -Wall` et exécutez le binaire généré." }
+      ],
+      "minTimeRead": "7",
+      "difficulty": "EASY"
+    },
+    {
+      "lessonId": "l2",
+      "title": "Installer un environnement de développement",
+      "content": [
+        { "type": "title", "value": "Installer GCC et outils de base" },
+        { "type": "text", "value": "Selon votre OS, suivez ces étapes :\n- **Ubuntu/Debian** : `sudo apt update` puis `sudo apt install build-essential`\n- **Arch** : `sudo pacman -Syu base-devel`\n- **Windows** : installez MSYS2 puis `pacman -S mingw-w64-x86_64-gcc`\nUtilisez ensuite un éditeur : Visual Studio Code, Vim, ou CLion selon vos préférences." },
+        { "type": "note", "value": "L'important est d'avoir : le compilateur (gcc/clang), un éditeur et la possibilité d'ouvrir un terminal." },
+        { "type": "smallTitle", "value": "Tester l’installation" },
+        { "type": "code", "language": "bash", "value": "gcc --version\nclang --version" },
+        { "type": "text", "value": "Si la commande renvoie une version, tout est prêt. Sinon vérifiez le PATH ou réinstallez l’outil." },
+        { "type": "exercise", "value": "Installez GCC sur votre machine virtuelle ou PC et compilez le programme d’exemple du cours précédent." }
+      ],
+      "minTimeRead": "6",
+      "difficulty": "EASY"
+    },
+    {
+      "lessonId": "l3",
+      "title": "Outils et bonnes pratiques",
+      "content": [
+        { "type": "title", "value": "Écrire du code lisible" },
+        { "type": "text", "value": "La lisibilité compte plus que le micro-optimisation au début. Indentez votre code, commentez les parties complexes, et nommez clairement les variables. Respectez une taille de fonction raisonnable." },
+        { "type": "smallTitle", "value": "Flags utiles de compilation" },
+        { "type": "text", "value": "- `-Wall -Wextra` : active la majorité des warnings utiles\n- `-O2` : optimisation niveau 2\n- `-g` : inclut les symboles pour le debugging" },
+        { "type": "code", "language": "bash", "value": "gcc -std=c11 -Wall -Wextra -g -O2 main.c -o main" },
+        { "type": "warning", "value": "Ne compilez pas d’emblée avec `-Ofast` en phase de développement : vous perdrez des messages utiles." },
+        { "type": "exercise", "value": "Recompilez votre programme avec `-Wall -Wextra -g` et corrigez les warnings éventuels." }
+      ],
+      "minTimeRead": "5",
+      "difficulty": "EASY"
+    }
+  ]
+}
+
+  ]
 }
