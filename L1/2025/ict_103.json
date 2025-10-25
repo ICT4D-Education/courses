@@ -1,283 +1,554 @@
 {
   "courseId": "ICT103",
   "courseTitle": "Programmation en C",
-  "chapterId": "ch1",
-  "chapterTitle": "Les bases solides en C",
-  "lessons": [
+  "chapters": [
     {
-      "lessonId": "l1",
-      "title": "Présentation du langage C",
-      "content": [
+      "chapterId": "ch1",
+      "chapterTitle": "Les bases solides en C",
+      "lessons": [
         {
-          "type": "title",
-          "value": "Pourquoi apprendre le C en 2025 ?"
+          "lessonId": "l1",
+          "title": "Présentation du langage C",
+          "content": [
+            {
+              "type": "title",
+              "value": "Pourquoi apprendre le C en 2025 ?"
+            },
+            {
+              "type": "text",
+              "value": "Le C est un langage impératif, compilé, conçu au début des années 1970 par Dennis Ritchie chez Bell Labs pour développer UNIX. Il est encore massivement utilisé pour les systèmes d’exploitation, l’embarqué, les bases de données, les moteurs de jeu, les compilateurs et les bibliothèques à haute performance."
+            },
+            {
+              "type": "note",
+              "value": "Apprendre le C permet de comprendre comment fonctionne réellement la mémoire et d’acquérir des réflexes de performance et de rigueur utiles dans tous les autres langages."
+            },
+            {
+              "type": "smallTitle",
+              "value": "Objectifs pédagogiques de la leçon"
+            },
+            {
+              "type": "text",
+              "value": "À la fin de cette leçon, vous serez capable de :\n- Expliquer à quoi sert le C et où il est utilisé.\n- Décrire ses forces et ses limites.\n- Situer le C par rapport à des langages comme Python ou Java.\n- Comprendre la chaîne de compilation à très haut niveau.\n- Lire un court extrait de code pour en saisir l’intention."
+            },
+            {
+              "type": "title",
+              "value": "Origines et évolution"
+            },
+            {
+              "type": "text",
+              "value": "Créé pour UNIX, le C a été normalisé par l’ANSI à la fin des années 1980 (C89/C90), puis mis à jour par l’ISO (C99, C11, C17, C23). Chaque standard apporte de nouvelles fonctionnalités, comme les types entiers fixes, le mot-clé inline, ou la gestion améliorée de la concurrence."
+            },
+            {
+              "type": "title",
+              "value": "Domaines d’utilisation"
+            },
+            {
+              "type": "text",
+              "value": "• Systèmes : noyaux et pilotes.\n• Embarqué/IoT : microcontrôleurs, firmware.\n• Bases de données : bibliothèques cœur très performantes.\n• Jeux : couches bas niveau, moteurs natifs.\n• Outils de développement : compilateurs, interprètes, runtimes."
+            },
+            {
+              "type": "note",
+              "value": "Le langage C reste un point de convergence entre le matériel et le logiciel. Peu de langages offrent un tel contrôle."
+            },
+            {
+              "type": "title",
+              "value": "Forces et limites"
+            },
+            {
+              "type": "smallTitle",
+              "value": "Forces"
+            },
+            {
+              "type": "text",
+              "value": "- Performance prévisible.\n- Contrôle fin sur la mémoire.\n- Portabilité sur de nombreuses plateformes.\n- Large écosystème."
+            },
+            {
+              "type": "smallTitle",
+              "value": "Limites"
+            },
+            {
+              "type": "warning",
+              "value": "Le C ne gère pas automatiquement la mémoire. Les erreurs comme les fuites mémoire ou les dépassements de tampon sont courantes chez les débutants."
+            },
+            {
+              "type": "title",
+              "value": "Le C face aux autres langages"
+            },
+            {
+              "type": "text",
+              "value": "Python privilégie la rapidité d’écriture, Java offre une machine virtuelle et un ramasse-miettes, tandis que le C expose directement la machine : vous payez uniquement ce que vous utilisez."
+            },
+            {
+              "type": "title",
+              "value": "Chaîne de compilation (vue d’ensemble)"
+            },
+            {
+              "type": "text",
+              "value": "Écriture du code source (.c) → Prétraitement (#include, #define) → Compilation en objets (.o) → Édition de liens (linker) → exécutable."
+            },
+            {
+              "type": "note",
+              "value": "Le C est un langage compilé : chaque modification nécessite une recompilation."
+            },
+            {
+              "type": "title",
+              "value": "Aperçu d’un code C"
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "#include <stdio.h>\n\n/* Point d’entrée */\nint main(void) {\n    printf(\"Bonjour C\\n\");\n    return 0;\n}"
+            },
+            {
+              "type": "smallTitle",
+              "value": "Points clés"
+            },
+            {
+              "type": "text",
+              "value": "- #include <stdio.h> rend disponible printf.\n- main est le point d’entrée.\n- Chaque instruction se termine par ;."
+            },
+            {
+              "type": "exercise",
+              "value": "Modifiez l’exemple pour afficher votre prénom au lieu de \"Bonjour C\"."
+            },
+            {
+              "type": "title",
+              "value": "Bonnes pratiques"
+            },
+            {
+              "type": "text",
+              "value": "- Écrire court et clair.\n- Compiler souvent.\n- Lire attentivement les messages du compilateur."
+            }
+          ]
         },
         {
-          "type": "text",
-          "value": "Le C est un langage **impératif**, compilé, conçu au début des années 1970 par Dennis Ritchie chez Bell Labs pour développer **UNIX**. Il est encore massivement utilisé pour les systèmes d’exploitation, l’embarqué, les bases de données, les moteurs de jeu, les compilateurs et les bibliothèques à haute performance."
+          "lessonId": "l2",
+          "title": "Installation et configuration de l’environnement C",
+          "content": [
+            {
+              "type": "title",
+              "value": "Objectif de la leçon"
+            },
+            {
+              "type": "text",
+              "value": "Mettre en place un environnement de développement C fonctionnel sur Ubuntu, Arch Linux et Windows, afin de pouvoir écrire, compiler et exécuter vos premiers programmes."
+            },
+            {
+              "type": "note",
+              "value": "Le langage C n’a pas besoin de machine puissante. Un PC standard suffit, mais un bon éditeur de code et un compilateur fiable sont essentiels."
+            },
+            {
+              "type": "title",
+              "value": "Étapes communes à toutes les plateformes"
+            },
+            {
+              "type": "text",
+              "value": "1. Installer un compilateur C (GCC ou Clang).\n2. Installer un éditeur de code ou un IDE.\n3. Vérifier que le compilateur fonctionne.\n4. Créer un dossier de travail pour vos projets."
+            },
+            {
+              "type": "title",
+              "value": "Installation sur Ubuntu/Debian"
+            },
+            {
+              "type": "text",
+              "value": "1. Mettez à jour la liste des paquets :\n   sudo apt update\n2. Installez GCC et Make :\n   sudo apt install build-essential\n3. Vérifiez l’installation :\n   gcc --version"
+            },
+            {
+              "type": "note",
+              "value": "build-essential installe GCC, G++, Make et les en-têtes nécessaires à la compilation."
+            },
+            {
+              "type": "title",
+              "value": "Installation sur Arch Linux / Manjaro"
+            },
+            {
+              "type": "text",
+              "value": "1. Mettez à jour vos paquets :\n   sudo pacman -Syu\n2. Installez le groupe base-devel :\n   sudo pacman -S base-devel\n3. Vérifiez l’installation :\n   gcc --version"
+            },
+            {
+              "type": "title",
+              "value": "Installation sur Windows (avec MinGW / MSYS2)"
+            },
+            {
+              "type": "text",
+              "value": "1. Téléchargez MSYS2 depuis https://www.msys2.org/ et installez-le.\n2. Ouvrez \"MSYS2 MSYS\" et mettez à jour :\n   pacman -Syu\n3. Installez le compilateur GCC :\n   pacman -S mingw-w64-x86_64-gcc\n4. Ajoutez le chemin C:\\\\msys64\\\\mingw64\\\\bin à la variable d’environnement PATH.\n5. Vérifiez dans un terminal :\n   gcc --version"
+            },
+            {
+              "type": "warning",
+              "value": "Sans ajouter le chemin du compilateur au PATH, vous devrez l’appeler depuis MSYS2 uniquement."
+            },
+            {
+              "type": "exercise",
+              "value": "Installez GCC sur votre machine (ou utilisez un environnement en ligne) et compilez le programme \"Hello World\" fourni dans la leçon précédente."
+            }
+          ]
         },
         {
-          "type": "note",
-          "value": "Apprendre le C permet de comprendre **comment fonctionne réellement la mémoire** et d’acquérir des réflexes de performance et de rigueur utiles dans tous les autres langages."
-        },
-        {
-          "type": "smallTitle",
-          "value": "Objectifs pédagogiques de la leçon"
-        },
-        {
-          "type": "text",
-          "value": "À la fin de cette leçon, vous serez capable de :\n- Expliquer à quoi sert le C et où il est utilisé.\n- Décrire ses forces et ses limites.\n- Situer le C par rapport à des langages comme **Python** ou **Java**.\n- Comprendre la chaîne de compilation à très haut niveau.\n- Lire un court extrait de code pour en saisir l’intention."
-        },
-        {
-          "type": "title",
-          "value": "Origines et évolution"
-        },
-        {
-          "type": "text",
-          "value": "Créé pour **UNIX**, le C a été normalisé par l’ANSI à la fin des années 1980 (**C89/C90**), puis mis à jour par l’ISO (**C99**, **C11**, **C17**, **C23**). Chaque standard apporte de nouvelles fonctionnalités, comme les **types entiers fixes**, le mot-clé `inline`, ou la gestion améliorée de la concurrence."
-        },
-        {
-          "type": "title",
-          "value": "Domaines d’utilisation"
-        },
-        {
-          "type": "text",
-          "value": "• Systèmes : noyaux et pilotes.\n• Embarqué/IoT : microcontrôleurs, firmware.\n• Bases de données : bibliothèques cœur très performantes.\n• Jeux : couches bas niveau, moteurs natifs.\n• Outils de développement : compilateurs, interprètes, runtimes."
-        },
-        {
-          "type": "note",
-          "value": "Le langage C reste un **point de convergence** entre le matériel et le logiciel. Peu de langages offrent un tel contrôle."
-        },
-        {
-          "type": "title",
-          "value": "Forces et limites"
-        },
-        {
-          "type": "smallTitle",
-          "value": "Forces"
-        },
-        {
-          "type": "text",
-          "value": "- Performance prévisible.\n- Contrôle fin sur la mémoire.\n- Portabilité sur de nombreuses plateformes.\n- Large écosystème."
-        },
-        {
-          "type": "smallTitle",
-          "value": "Limites"
-        },
-        {
-          "type": "warning",
-          "value": "Le C ne gère pas automatiquement la mémoire. Les erreurs comme les **fuites mémoire** ou les **dépassements de tampon** sont courantes chez les débutants."
-        },
-        {
-          "type": "title",
-          "value": "Le C face aux autres langages"
-        },
-        {
-          "type": "text",
-          "value": "**Python** privilégie la rapidité d’écriture, **Java** offre une machine virtuelle et un ramasse-miettes, tandis que le **C** expose directement la machine : vous payez uniquement ce que vous utilisez."
-        },
-        {
-          "type": "title",
-          "value": "Chaîne de compilation (vue d’ensemble)"
-        },
-        {
-          "type": "text",
-          "value": "Écriture du code source (`.c`) → Prétraitement (`#include`, `#define`) → Compilation en objets (`.o`) → Édition de liens (linker) → exécutable."
-        },
-        {
-          "type": "note",
-          "value": "Le C est un langage compilé : chaque modification nécessite une recompilation."
-        },
-        {
-          "type": "title",
-          "value": "Aperçu d’un code C"
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "value": "#include <stdio.h>\n\n/* Point d’entrée */\nint main(void) {\n    printf(\"Bonjour C\\n\");\n    return 0;\n}"
-        },
-        {
-          "type": "smallTitle",
-          "value": "Points clés"
-        },
-        {
-          "type": "text",
-          "value": "- `#include <stdio.h>` rend disponible `printf`.\n- `main` est le point d’entrée.\n- Chaque instruction se termine par `;`."
-        },
-        {
-          "type": "exercise",
-          "value": "Modifiez l’exemple pour afficher votre prénom au lieu de \"Bonjour C\"."
-        },
-        {
-          "type": "title",
-          "value": "Bonnes pratiques"
-        },
-        {
-          "type": "text",
-          "value": "- Écrire court et clair.\n- Compiler souvent.\n- Lire attentivement les messages du compilateur."
+          "lessonId": "l3",
+          "title": "Structure minimale d’un programme C",
+          "content": [
+            {
+              "type": "title",
+              "value": "Comprendre la structure de base"
+            },
+            {
+              "type": "text",
+              "value": "Un programme C comporte toujours une fonction principale appelée main, qui sert de point d’entrée à l’exécution. Cette fonction peut être précédée d’instructions de préprocesseur comme #include pour inclure des bibliothèques."
+            },
+            {
+              "type": "note",
+              "value": "Sans main, le compilateur ne saura pas où commencer l’exécution de votre programme."
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, world!\\n\");\n    return 0;\n}"
+            },
+            {
+              "type": "warning",
+              "value": "Oublier le ; à la fin d’une instruction est une cause fréquente d'erreur."
+            },
+            {
+              "type": "exercise",
+              "value": "Créez un programme qui affiche deux lignes différentes, par exemple : \"Bonjour\" puis \"Bienvenue dans le C\"."
+            }
+          ]
         }
       ]
     },
     {
-      "lessonId": "l2",
-      "title": "Installation et configuration de l’environnement C",
-      "content": [
+      "chapterId": "ch2",
+      "chapterTitle": "Contrôles, fonctions, tableaux et pointeurs — comprendre le comment et le pourquoi",
+      "lessons": [
         {
-          "type": "title",
-          "value": "Objectif de la leçon"
+          "lessonId": "l4",
+          "title": "Structures de contrôle : if, else, switch, boucles",
+          "content": [
+            {
+              "type": "title",
+              "value": "Pourquoi les structures de contrôle ?"
+            },
+            {
+              "type": "text",
+              "value": "Les structures de contrôle permettent de modifier le flux d’exécution d’un programme : prendre des décisions, répéter des actions, et organiser la logique. Comprendre leur fonctionnement est crucial pour écrire des algorithmes corrects et efficaces."
+            },
+            {
+              "type": "smallTitle",
+              "value": "if / else"
+            },
+            {
+              "type": "text",
+              "value": "La construction if teste une condition ; si elle est vraie, le bloc associé s’exécute. else permet d’exécuter un autre bloc si la condition est fausse. Utilisez toujours des conditions claires et évitez les expressions complexes non parenthésées."
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "#include <stdio.h>\n\nint main(void) {\n    int a = 10;\n    if (a > 5) {\n        printf(\"a est supérieur à 5\\n\");\n    } else {\n        printf(\"a est inférieur ou égal à 5\\n\");\n    }\n    return 0;\n}"
+            },
+            {
+              "type": "smallTitle",
+              "value": "switch"
+            },
+            {
+              "type": "text",
+              "value": "switch est utile pour sélectionner entre plusieurs cas discrets. Chaque case doit se terminer par break pour éviter le fall-through si vous ne le voulez pas."
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "switch (n) {\n    case 0:\n        // ...\n        break;\n    case 1:\n        // ...\n        break;\n    default:\n        // ...\n}"
+            },
+            {
+              "type": "smallTitle",
+              "value": "Boucles : for, while, do-while"
+            },
+            {
+              "type": "text",
+              "value": "Les boucles permettent de répéter un bloc d’instructions. Choisissez for quand vous connaissez le nombre d’itérations, while quand vous dépendez d’une condition, et do-while pour exécuter le bloc au moins une fois."
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "// for\nfor (int i = 0; i < 10; i++) {\n    printf(\"%d\\n\", i);\n}\n\n// while\nint i = 0;\nwhile (i < 10) {\n    printf(\"%d\\n\", i);\n    i++;\n}\n\n// do-while\nint j = 0;\ndo {\n    printf(\"%d\\n\", j);\n    j++;\n} while (j < 10);"
+            },
+            {
+              "type": "note",
+              "value": "Attention aux boucles infinies : assurez-vous que la condition finira par devenir fausse ou prévoyez un break."
+            },
+            {
+              "type": "exercise",
+              "value": "Écrivez un programme qui calcule la somme des entiers de 1 à 100 en utilisant une boucle for, puis faites la même chose avec while."
+            }
+          ]
         },
         {
-          "type": "text",
-          "value": "Mettre en place un environnement de développement C fonctionnel sur **Ubuntu**, **Arch Linux** et **Windows**, afin de pouvoir écrire, compiler et exécuter vos premiers programmes."
+          "lessonId": "l5",
+          "title": "Fonctions : modularité, prototypes et passage de paramètres",
+          "content": [
+            {
+              "type": "title",
+              "value": "Pourquoi utiliser des fonctions ?"
+            },
+            {
+              "type": "text",
+              "value": "Les fonctions permettent de découper un programme en unités logiques réutilisables : faciliter la lecture, tester plus facilement, et réduire la duplication de code. Elles sont la brique de base d’un code maintenable."
+            },
+            {
+              "type": "smallTitle",
+              "value": "Définir et appeler une fonction"
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "#include <stdio.h>\n\nint add(int a, int b) {\n    return a + b;\n}\n\nint main(void) {\n    int s = add(3, 4);\n    printf(\"3 + 4 = %d\\n\", s);\n    return 0;\n}"
+            },
+            {
+              "type": "smallTitle",
+              "value": "Prototype de fonction"
+            },
+            {
+              "type": "text",
+              "value": "Déclarez les prototypes (signatures) en haut d’un fichier ou dans un header (.h) pour permettre au compilateur de connaître les fonctions utilisées avant leur définition."
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "/* fichier main.c */\n#include \"utils.h\"\n\nint main(void) {\n    // ...\n}\n\n/* fichier utils.h */\nint add(int a, int b);"
+            },
+            {
+              "type": "smallTitle",
+              "value": "Passage par valeur vs passage par adresse"
+            },
+            {
+              "type": "text",
+              "value": "En C, les arguments sont passés par valeur : la fonction reçoit une copie. Pour modifier une variable de l’appelant, il faut passer un pointeur (adresse)."
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "void increment(int *p) {\n    (*p)++;\n}\n\nint main(void) {\n    int x = 0;\n    increment(&x);\n    // x vaut maintenant 1\n}"
+            },
+            {
+              "type": "exercise",
+              "value": "Écrivez une fonction swap(int *a, int *b) qui échange les valeurs pointées par a et b. Testez-la dans main."
+            }
+          ]
         },
         {
-          "type": "note",
-          "value": "Le langage C n’a pas besoin de machine puissante. Un PC standard suffit, mais un bon éditeur de code et un compilateur fiable sont essentiels."
+          "lessonId": "l6",
+          "title": "Tableaux, chaînes de caractères et gestion de la mémoire",
+          "content": [
+            {
+              "type": "title",
+              "value": "Tableaux : stockage contigu"
+            },
+            {
+              "type": "text",
+              "value": "Un tableau en C est une zone mémoire contiguë contenant des éléments du même type. Les indices commencent à 0. Le nom du tableau correspond à l’adresse du premier élément."
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "int arr[5] = {1, 2, 3, 4, 5};\nfor (int i = 0; i < 5; i++) {\n    printf(\"%d\\n\", arr[i]);\n}"
+            },
+            {
+              "type": "smallTitle",
+              "value": "Chaînes de caractères"
+            },
+            {
+              "type": "text",
+              "value": "Les chaînes en C sont des tableaux de char terminés par '\\\\0'. Beaucoup d’erreurs classiques viennent d’un mauvais calcul de taille ou d’un dépassement."
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "char s[6] = \"Hello\"; // 'H','e','l','l','o','\\0'"
+            },
+            {
+              "type": "warning",
+              "value": "Ne pas oublier de réserver un caractère pour le terminateur '\\\\0'."
+            },
+            {
+              "type": "smallTitle",
+              "value": "malloc, calloc, free"
+            },
+            {
+              "type": "text",
+              "value": "Pour des tailles dynamiques, utilisez malloc/calloc pour allouer de la mémoire et free pour la libérer. Toujours vérifier que malloc ne renvoie pas NULL."
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "#include <stdlib.h>\n\nint *p = malloc(10 * sizeof(int));\nif (p == NULL) {\n    // gestion d'erreur\n}\n// utilisation\nfree(p);"
+            },
+            {
+              "type": "exercise",
+              "value": "Allouez dynamiquement un tableau de n entiers (n fourni par l’utilisateur), remplissez-le, affichez la valeur maximale puis libérez la mémoire."
+            }
+          ]
         },
         {
-          "type": "title",
-          "value": "Étapes communes à toutes les plateformes"
+          "lessonId": "l7",
+          "title": "Pointeurs : compréhension profonde et usages pratiques",
+          "content": [
+            {
+              "type": "title",
+              "value": "Pourquoi les pointeurs existent-ils ?"
+            },
+            {
+              "type": "text",
+              "value": "Les pointeurs permettent de manipuler des adresses mémoire directement : partager de grandes structures sans copie, construire des structures dynamiques (listes, arbres), et interfacer le C avec le matériel."
+            },
+            {
+              "type": "smallTitle",
+              "value": "Notation et opérations de base"
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "int x = 42;\nint *p = &x; // p pointe vers x\nprintf(\"x = %d, *p = %d\\n\", x, *p);\n*p = 10; // modifie x"
+            },
+            {
+              "type": "smallTitle",
+              "value": "Pointeurs et tableaux"
+            },
+            {
+              "type": "text",
+              "value": "Le nom d’un tableau est équivalent à un pointeur constant sur son premier élément. Vous pouvez parcourir un tableau avec un pointeur."
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "int arr[3] = {10, 20, 30};\nint *p = arr; // &arr[0]\nfor (int i = 0; i < 3; i++) {\n    printf(\"%d\\n\", *(p + i));\n}"
+            },
+            {
+              "type": "smallTitle",
+              "value": "Pointeurs de pointeurs et allocation 2D"
+            },
+            {
+              "type": "text",
+              "value": "Pour des tableaux 2D dynamiques, on utilise souvent int** avec allocation ligne par ligne ou allocation en bloc."
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "// Allocation 2D simple (n x m)\nint **mat = malloc(n * sizeof(int*));\nfor (int i = 0; i < n; ++i) {\n    mat[i] = malloc(m * sizeof(int));\n}\n// libération\nfor (int i = 0; i < n; ++i) free(mat[i]);\nfree(mat);"
+            },
+            {
+              "type": "warning",
+              "value": "Les oublis de free provoquent des fuites mémoire ; libérez toujours ce que vous allouez."
+            },
+            {
+              "type": "exercise",
+              "value": "Implémentez une fonction qui prend un tableau d'entiers et sa taille, et retourne la moyenne (float). Utilisez des pointeurs pour accéder aux éléments."
+            }
+          ]
         },
         {
-          "type": "text",
-          "value": "1. Installer un **compilateur C** (GCC ou Clang).\n2. Installer un **éditeur de code** ou un IDE.\n3. Vérifier que le compilateur fonctionne.\n4. Créer un dossier de travail pour vos projets."
+          "lessonId": "l8",
+          "title": "Debugging, tests et bonnes pratiques (style Google Developers / OpenClassrooms)",
+          "content": [
+            {
+              "type": "title",
+              "value": "Se préparer à déboguer efficacement"
+            },
+            {
+              "type": "text",
+              "value": "Le débogage efficace repose sur : comprendre le comportement attendu, isoler le problème, reproduire le bug, et vérifier chaque hypothèse avec des tests simples. Utilisez printf pour commencer, puis un débogueur (gdb) pour inspecter l’état mémoire."
+            },
+            {
+              "type": "smallTitle",
+              "value": "Assertions et vérifications"
+            },
+            {
+              "type": "text",
+              "value": "Utilisez des vérifications d’entrée et assert pour détecter des conditions impossibles pendant le développement."
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "#include <assert.h>\n\nvoid foo(int x) {\n    assert(x > 0); // crash en debug si faux\n}\n"
+            },
+            {
+              "type": "smallTitle",
+              "value": "Tests unitaires et modularité"
+            },
+            {
+              "type": "text",
+              "value": "Écrivez des fonctions courtes et testables. Pour tester en C, regardez des frameworks tels que Check ou écrivez de petits programmes de test automatisés."
+            },
+            {
+              "type": "smallTitle",
+              "value": "Style et lisibilité"
+            },
+            {
+              "type": "text",
+              "value": "Respectez une indentation cohérente, nommez clairement vos variables, et commentez le pourquoi (pas le comment obvious). Google Developers recommande des noms explicites et des fonctions de taille raisonnable."
+            },
+            {
+              "type": "exercise",
+              "value": "Prenez un petit programme qui marche mais qui a un bug subtil (pointeur non initialisé, dépassement de tampon). Ajoutez des printf et utilisez gdb pour trouver la cause et corriger-la."
+            }
+          ]
         },
         {
-          "type": "warning",
-          "value": "Sous Windows, évitez les chemins avec des espaces ou caractères spéciaux dans vos dossiers de projet."
+          "lessonId": "l9",
+          "title": "Mini-projet : petit utilitaire texte (lignes, mots, caractères)",
+          "content": [
+            {
+              "type": "title",
+              "value": "Objectif du mini-projet"
+            },
+            {
+              "type": "text",
+              "value": "Créer un programme qui lit un fichier texte et affiche : nombre de lignes, nombre de mots et nombre de caractères. Ce projet mettra en pratique la lecture de fichiers, les tableaux, les boucles et la gestion de la mémoire."
+            },
+            {
+              "type": "smallTitle",
+              "value": "Étapes conseillées"
+            },
+            {
+              "type": "text",
+              "value": "1. Écrire une fonction qui ouvre un fichier et lit caractère par caractère.\n2. Compter les caractères, détecter les séparateurs pour compter les mots, et incrémenter les lignes au '\\\\n'.\n3. Tester sur plusieurs fichiers et vérifier les cas limites (fichier vide, fin sans nouvelle ligne)."
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "#include <stdio.h>\n#include <ctype.h>\n\nint main(int argc, char *argv[]) {\n    if (argc < 2) {\n        printf(\"Usage: %s filename\\n\", argv[0]);\n        return 1;\n    }\n    FILE *f = fopen(argv[1], \"r\");\n    if (!f) { perror(\"fopen\"); return 1; }\n\n    int c;\n    long chars = 0, words = 0, lines = 0;\n    int in_word = 0;\n    while ((c = fgetc(f)) != EOF) {\n        chars++;\n        if (c == '\\n') lines++;\n        if (isspace(c)) {\n            if (in_word) { words++; in_word = 0; }\n        } else {\n            in_word = 1;\n        }\n    }\n    if (in_word) words++;\n    fclose(f);\n\n    printf(\"Chars: %ld\\nWords: %ld\\nLines: %ld\\n\", chars, words, lines);\n    return 0;\n}"
+            },
+            {
+              "type": "exercise",
+              "value": "Améliorez le programme : supportez les options de ligne de commande (-l, -w, -c) pour afficher seulement lignes/mots/caractères et gérez plusieurs fichiers."
+            }
+          ]
         },
         {
-          "type": "title",
-          "value": "Installation sur Ubuntu/Debian"
-        },
-        {
-          "type": "text",
-          "value": "1. Mettez à jour la liste des paquets :\n   `sudo apt update`\n2. Installez GCC et Make :\n   `sudo apt install build-essential`\n3. Vérifiez l’installation :\n   `gcc --version`\n   Vous devez voir la version de GCC affichée."
-        },
-        {
-          "type": "note",
-          "value": "`build-essential` installe GCC, G++, Make et les en-têtes nécessaires à la compilation."
-        },
-        {
-          "type": "title",
-          "value": "Installation sur Arch Linux / Manjaro"
-        },
-        {
-          "type": "text",
-          "value": "1. Mettez à jour vos paquets :\n   `sudo pacman -Syu`\n2. Installez le groupe base-devel :\n   `sudo pacman -S base-devel`\n3. Vérifiez l’installation :\n   `gcc --version`"
-        },
-        {
-          "type": "note",
-          "value": "Le groupe `base-devel` inclut GCC, Make, et d'autres outils indispensables."
-        },
-        {
-          "type": "title",
-          "value": "Installation sur Windows (avec MinGW)"
-        },
-        {
-          "type": "text",
-          "value": "1. Téléchargez **MSYS2** depuis https://www.msys2.org/ et installez-le.\n2. Ouvrez \"MSYS2 MSYS\" et mettez à jour :\n   `pacman -Syu`\n3. Installez le compilateur GCC :\n   `pacman -S mingw-w64-x86_64-gcc`\n4. Ajoutez le chemin `C:\\msys64\\mingw64\\bin` à la variable d’environnement PATH.\n5. Vérifiez dans un terminal :\n   `gcc --version`"
-        },
-        {
-          "type": "warning",
-          "value": "Sans ajouter le chemin du compilateur au PATH, vous devrez l’appeler depuis MSYS2 uniquement."
-        },
-        {
-          "type": "title",
-          "value": "Choisir un éditeur ou IDE"
-        },
-        {
-          "type": "text",
-          "value": "• **Visual Studio Code** : léger, extensible (extension C/C++).\n• **CLion** : complet, payant mais gratuit pour étudiants.\n• **Code::Blocks** : simple, orienté C/C++.\n• Éditeurs légers : Vim, Neovim, Sublime Text."
-        },
-        {
-          "type": "note",
-          "value": "VS Code avec l’extension officielle Microsoft C/C++ offre un bon équilibre entre simplicité et fonctionnalités."
-        },
-        {
-          "type": "title",
-          "value": "Premier test"
-        },
-        {
-          "type": "text",
-          "value": "1. Créez un fichier `test.c` :"
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "value": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Test C OK\\n\");\n    return 0;\n}"
-        },
-        {
-          "type": "text",
-          "value": "2. Compilez :\n   `gcc test.c -o test`\n3. Exécutez :\n   `./test` (Linux/macOS)\n   `test.exe` (Windows)"
-        },
-        {
-          "type": "exercise",
-          "value": "Modifiez le programme pour afficher votre prénom et compilez-le à nouveau."
-        },
-        {
-          "type": "title",
-          "value": "Résumé de la leçon"
-        },
-        {
-          "type": "text",
-          "value": "- GCC est le compilateur le plus courant.\n- Les étapes d’installation varient selon le système.\n- Vérifier la version de GCC est une bonne pratique.\n- Un éditeur adapté accélère l’apprentissage."
-        }
-      ]
-    },
-    {
-      "lessonId": "l3",
-      "title": "Structure minimale d’un programme C",
-      "content": [
-        {
-          "type": "title",
-          "value": "Comprendre la structure de base"
-        },
-        {
-          "type": "text",
-          "value": "Un programme C comporte toujours une **fonction principale** appelée `main`, qui sert de point d’entrée à l’exécution. Cette fonction peut être précédée d’instructions de préprocesseur comme `#include` pour inclure des bibliothèques."
-        },
-        {
-          "type": "note",
-          "value": "Sans `main`, le compilateur ne saura pas où commencer l’exécution de votre programme."
-        },
-        {
-          "type": "title",
-          "value": "Exemple minimal"
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "value": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, world!\\n\");\n    return 0;\n}"
-        },
-        {
-          "type": "text",
-          "value": "Voici les éléments clés :\n- `#include <stdio.h>` : rend disponible la fonction `printf`.\n- `int main(void)` : point d’entrée du programme.\n- `return 0;` : signale au système que tout s’est bien passé."
-        },
-        {
-          "type": "warning",
-          "value": "Oublier le `;` à la fin d’une instruction est une cause fréquente d’erreur."
-        },
-        {
-          "type": "title",
-          "value": "Flux d’exécution"
-        },
-        {
-          "type": "text",
-          "value": "L’exécution commence à `main`, se poursuit ligne par ligne et se termine lorsque la fonction atteint `return` ou la fin du bloc."
-        },
-        {
-          "type": "note",
-          "value": "En C, un programme peut contenir plusieurs fonctions, mais `main` sera toujours appelée en premier."
-        },
-        {
-          "type": "exercise",
-          "value": "Créez un programme qui affiche deux lignes différentes, par exemple : \"Bonjour\" puis \"Bienvenue dans le C\".",
-          "indication": " "
+          "lessonId": "l10",
+          "title": "Résumé du chapitre, bonnes pratiques et ressources",
+          "content": [
+            {
+              "type": "title",
+              "value": "Ce que vous devez retenir"
+            },
+            {
+              "type": "text",
+              "value": "- Les structures de contrôle modifient le flux d’exécution (if, switch, loops).\n- Les fonctions apportent modularité et réutilisabilité.\n- Les tableaux et pointeurs sont au cœur de la gestion mémoire en C.\n- Toujours allouer et libérer proprement la mémoire.\n- Déboguez méthodiquement et écrivez des tests simples."
+            },
+            {
+              "type": "smallTitle",
+              "value": "Checklist pratique"
+            },
+            {
+              "type": "text",
+              "value": "1. Compiler souvent.\n2. Tester chaque fonction séparément.\n3. Vérifier les retours d'appel système (malloc, fopen...).\n4. Utiliser des outils : gcc -Wall -Wextra, valgrind pour détecter les fuites.\n5. Documenter le pourquoi des décisions importantes dans le code."
+            },
+            {
+              "type": "exercise",
+              "value": "Faites un petit carnet de bord : pour chaque bug rencontré, notez la cause, la solution, et ce que vous avez appris."
+            }
+          ]
         }
       ]
     }
-
   ]
 }
