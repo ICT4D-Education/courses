@@ -1,283 +1,198 @@
 {
   "courseId": "ICT103",
   "courseTitle": "Programmation en C",
-  "chapterId": "ch1",
-  "chapterTitle": "Les bases solides en C",
-  "lessons": [
+  "chapters": [
     {
-      "lessonId": "l1",
-      "title": "Présentation du langage C",
-      "content": [
+      "courseId": "ICT103",
+      "courseTitle": "Programmation en C",
+      "chapterId": "ch1",
+      "chapterTitle": "Les bases solides en C",
+      "lessons": [
         {
-          "type": "title",
-          "value": "Pourquoi apprendre le C en 2025 ?"
+          "lessonId": "l1",
+          "title": "Présentation du langage C",
+          "content": [
+            {
+              "type": "title",
+              "value": "Pourquoi apprendre le C en 2025 ?"
+            },
+            {
+              "type": "text",
+              "value": "Le langage **C** reste incontournable pour comprendre les fondements de la programmation. Il permet de maîtriser la mémoire, la compilation, et la logique algorithmique à bas niveau, des compétences précieuses pour tout développeur."
+            },
+            {
+              "type": "note",
+              "value": "Apprendre le C, c’est comprendre *comment fonctionne réellement un ordinateur*."
+            },
+            {
+              "type": "title",
+              "value": "Les points forts du C"
+            },
+            {
+              "type": "text",
+              "value": "• Portable et rapide\n• Utilisé dans les systèmes, les jeux, et les compilateurs\n• Base de nombreux autres langages (C++, Java, Go, etc.)"
+            },
+            {
+              "type": "exercise",
+              "value": "Écrivez un programme affichant votre prénom à l’écran."
+            }
+          ]
         },
         {
-          "type": "text",
-          "value": "Le C est un langage **impératif**, compilé, conçu au début des années 1970 par Dennis Ritchie chez Bell Labs pour développer **UNIX**. Il est encore massivement utilisé pour les systèmes d’exploitation, l’embarqué, les bases de données, les moteurs de jeu, les compilateurs et les bibliothèques à haute performance."
+          "lessonId": "l2",
+          "title": "Installation et configuration de l’environnement C",
+          "content": [
+            {
+              "type": "title",
+              "value": "Préparer votre environnement"
+            },
+            {
+              "type": "text",
+              "value": "Avant d’écrire votre premier programme, il faut un **compilateur** et un **éditeur**. Sur Ubuntu, installez GCC avec la commande `sudo apt install build-essential`. Sur Windows, utilisez **MSYS2** et installez `mingw-w64-x86_64-gcc`."
+            },
+            {
+              "type": "note",
+              "value": "Les outils de compilation transforment votre code en langage machine exécutable par le processeur."
+            },
+            {
+              "type": "exercise",
+              "value": "Vérifiez votre installation en exécutant `gcc --version` dans un terminal."
+            }
+          ]
         },
         {
-          "type": "note",
-          "value": "Apprendre le C permet de comprendre **comment fonctionne réellement la mémoire** et d’acquérir des réflexes de performance et de rigueur utiles dans tous les autres langages."
-        },
-        {
-          "type": "smallTitle",
-          "value": "Objectifs pédagogiques de la leçon"
-        },
-        {
-          "type": "text",
-          "value": "À la fin de cette leçon, vous serez capable de :\n- Expliquer à quoi sert le C et où il est utilisé.\n- Décrire ses forces et ses limites.\n- Situer le C par rapport à des langages comme **Python** ou **Java**.\n- Comprendre la chaîne de compilation à très haut niveau.\n- Lire un court extrait de code pour en saisir l’intention."
-        },
-        {
-          "type": "title",
-          "value": "Origines et évolution"
-        },
-        {
-          "type": "text",
-          "value": "Créé pour **UNIX**, le C a été normalisé par l’ANSI à la fin des années 1980 (**C89/C90**), puis mis à jour par l’ISO (**C99**, **C11**, **C17**, **C23**). Chaque standard apporte de nouvelles fonctionnalités, comme les **types entiers fixes**, le mot-clé `inline`, ou la gestion améliorée de la concurrence."
-        },
-        {
-          "type": "title",
-          "value": "Domaines d’utilisation"
-        },
-        {
-          "type": "text",
-          "value": "• Systèmes : noyaux et pilotes.\n• Embarqué/IoT : microcontrôleurs, firmware.\n• Bases de données : bibliothèques cœur très performantes.\n• Jeux : couches bas niveau, moteurs natifs.\n• Outils de développement : compilateurs, interprètes, runtimes."
-        },
-        {
-          "type": "note",
-          "value": "Le langage C reste un **point de convergence** entre le matériel et le logiciel. Peu de langages offrent un tel contrôle."
-        },
-        {
-          "type": "title",
-          "value": "Forces et limites"
-        },
-        {
-          "type": "smallTitle",
-          "value": "Forces"
-        },
-        {
-          "type": "text",
-          "value": "- Performance prévisible.\n- Contrôle fin sur la mémoire.\n- Portabilité sur de nombreuses plateformes.\n- Large écosystème."
-        },
-        {
-          "type": "smallTitle",
-          "value": "Limites"
-        },
-        {
-          "type": "warning",
-          "value": "Le C ne gère pas automatiquement la mémoire. Les erreurs comme les **fuites mémoire** ou les **dépassements de tampon** sont courantes chez les débutants."
-        },
-        {
-          "type": "title",
-          "value": "Le C face aux autres langages"
-        },
-        {
-          "type": "text",
-          "value": "**Python** privilégie la rapidité d’écriture, **Java** offre une machine virtuelle et un ramasse-miettes, tandis que le **C** expose directement la machine : vous payez uniquement ce que vous utilisez."
-        },
-        {
-          "type": "title",
-          "value": "Chaîne de compilation (vue d’ensemble)"
-        },
-        {
-          "type": "text",
-          "value": "Écriture du code source (`.c`) → Prétraitement (`#include`, `#define`) → Compilation en objets (`.o`) → Édition de liens (linker) → exécutable."
-        },
-        {
-          "type": "note",
-          "value": "Le C est un langage compilé : chaque modification nécessite une recompilation."
-        },
-        {
-          "type": "title",
-          "value": "Aperçu d’un code C"
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "value": "#include <stdio.h>\n\n/* Point d’entrée */\nint main(void) {\n    printf(\"Bonjour C\\n\");\n    return 0;\n}"
-        },
-        {
-          "type": "smallTitle",
-          "value": "Points clés"
-        },
-        {
-          "type": "text",
-          "value": "- `#include <stdio.h>` rend disponible `printf`.\n- `main` est le point d’entrée.\n- Chaque instruction se termine par `;`."
-        },
-        {
-          "type": "exercise",
-          "value": "Modifiez l’exemple pour afficher votre prénom au lieu de \"Bonjour C\"."
-        },
-        {
-          "type": "title",
-          "value": "Bonnes pratiques"
-        },
-        {
-          "type": "text",
-          "value": "- Écrire court et clair.\n- Compiler souvent.\n- Lire attentivement les messages du compilateur."
+          "lessonId": "l3",
+          "title": "Structure minimale d’un programme C",
+          "content": [
+            {
+              "type": "title",
+              "value": "Comprendre la structure de base"
+            },
+            {
+              "type": "text",
+              "value": "Tout programme en C commence par la fonction `main`. C’est elle qui définit le point d’entrée du programme. Le code suivant affiche un simple message :"
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}"
+            },
+            {
+              "type": "text",
+              "value": "Chaque instruction doit se terminer par un `;`. Le `return 0;` indique au système que le programme s’est exécuté sans erreur."
+            }
+          ]
         }
       ]
     },
     {
-      "lessonId": "l2",
-      "title": "Installation et configuration de l’environnement C",
-      "content": [
+      "courseId": "ICT103",
+      "courseTitle": "Programmation en C",
+      "chapterId": "ch2",
+      "chapterTitle": "Les variables, les types et la mémoire",
+      "lessons": [
         {
-          "type": "title",
-          "value": "Objectif de la leçon"
+          "lessonId": "l1",
+          "title": "Les variables et leur rôle",
+          "content": [
+            {
+              "type": "title",
+              "value": "Qu’est-ce qu’une variable ?"
+            },
+            {
+              "type": "text",
+              "value": "Une **variable** est une zone de mémoire nommée utilisée pour stocker une valeur. En C, vous devez *déclarer* le type de variable avant de l’utiliser."
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "int age = 20;\nfloat temperature = 23.5;\nchar lettre = 'A';"
+            },
+            {
+              "type": "note",
+              "value": "Le mot-clé `int` indique que la variable stocke un entier, `float` un nombre à virgule, et `char` un caractère."
+            },
+            {
+              "type": "title",
+              "value": "Pourquoi le typage est-il important ?"
+            },
+            {
+              "type": "text",
+              "value": "Le typage permet au compilateur de réserver la bonne quantité de mémoire et d’éviter les erreurs lors de l’exécution. C’est aussi ce qui rend le C si performant."
+            },
+            {
+              "type": "exercise",
+              "value": "Créez une variable `prix` de type `float` et affichez-la avec `printf`."
+            }
+          ]
         },
         {
-          "type": "text",
-          "value": "Mettre en place un environnement de développement C fonctionnel sur **Ubuntu**, **Arch Linux** et **Windows**, afin de pouvoir écrire, compiler et exécuter vos premiers programmes."
+          "lessonId": "l2",
+          "title": "Les types de données fondamentaux",
+          "content": [
+            {
+              "type": "title",
+              "value": "Les types les plus utilisés"
+            },
+            {
+              "type": "text",
+              "value": "Le C propose plusieurs types natifs :\n- `int` : entier (4 octets)\n- `float` : réel simple précision (4 octets)\n- `double` : réel double précision (8 octets)\n- `char` : caractère (1 octet)\n- `_Bool` : booléen (0 ou 1)"
+            },
+            {
+              "type": "warning",
+              "value": "En C, la taille d’un type peut légèrement varier selon le compilateur et la machine."
+            },
+            {
+              "type": "note",
+              "value": "Les **types dérivés** comme les tableaux ou pointeurs reposent sur ces types de base."
+            },
+            {
+              "type": "exercise",
+              "value": "Déclarez plusieurs variables de différents types et utilisez `printf` pour afficher leurs valeurs et leurs tailles avec `sizeof()`."
+            }
+          ]
         },
         {
-          "type": "note",
-          "value": "Le langage C n’a pas besoin de machine puissante. Un PC standard suffit, mais un bon éditeur de code et un compilateur fiable sont essentiels."
-        },
-        {
-          "type": "title",
-          "value": "Étapes communes à toutes les plateformes"
-        },
-        {
-          "type": "text",
-          "value": "1. Installer un **compilateur C** (GCC ou Clang).\n2. Installer un **éditeur de code** ou un IDE.\n3. Vérifier que le compilateur fonctionne.\n4. Créer un dossier de travail pour vos projets."
-        },
-        {
-          "type": "warning",
-          "value": "Sous Windows, évitez les chemins avec des espaces ou caractères spéciaux dans vos dossiers de projet."
-        },
-        {
-          "type": "title",
-          "value": "Installation sur Ubuntu/Debian"
-        },
-        {
-          "type": "text",
-          "value": "1. Mettez à jour la liste des paquets :\n   `sudo apt update`\n2. Installez GCC et Make :\n   `sudo apt install build-essential`\n3. Vérifiez l’installation :\n   `gcc --version`\n   Vous devez voir la version de GCC affichée."
-        },
-        {
-          "type": "note",
-          "value": "`build-essential` installe GCC, G++, Make et les en-têtes nécessaires à la compilation."
-        },
-        {
-          "type": "title",
-          "value": "Installation sur Arch Linux / Manjaro"
-        },
-        {
-          "type": "text",
-          "value": "1. Mettez à jour vos paquets :\n   `sudo pacman -Syu`\n2. Installez le groupe base-devel :\n   `sudo pacman -S base-devel`\n3. Vérifiez l’installation :\n   `gcc --version`"
-        },
-        {
-          "type": "note",
-          "value": "Le groupe `base-devel` inclut GCC, Make, et d'autres outils indispensables."
-        },
-        {
-          "type": "title",
-          "value": "Installation sur Windows (avec MinGW)"
-        },
-        {
-          "type": "text",
-          "value": "1. Téléchargez **MSYS2** depuis https://www.msys2.org/ et installez-le.\n2. Ouvrez \"MSYS2 MSYS\" et mettez à jour :\n   `pacman -Syu`\n3. Installez le compilateur GCC :\n   `pacman -S mingw-w64-x86_64-gcc`\n4. Ajoutez le chemin `C:\\msys64\\mingw64\\bin` à la variable d’environnement PATH.\n5. Vérifiez dans un terminal :\n   `gcc --version`"
-        },
-        {
-          "type": "warning",
-          "value": "Sans ajouter le chemin du compilateur au PATH, vous devrez l’appeler depuis MSYS2 uniquement."
-        },
-        {
-          "type": "title",
-          "value": "Choisir un éditeur ou IDE"
-        },
-        {
-          "type": "text",
-          "value": "• **Visual Studio Code** : léger, extensible (extension C/C++).\n• **CLion** : complet, payant mais gratuit pour étudiants.\n• **Code::Blocks** : simple, orienté C/C++.\n• Éditeurs légers : Vim, Neovim, Sublime Text."
-        },
-        {
-          "type": "note",
-          "value": "VS Code avec l’extension officielle Microsoft C/C++ offre un bon équilibre entre simplicité et fonctionnalités."
-        },
-        {
-          "type": "title",
-          "value": "Premier test"
-        },
-        {
-          "type": "text",
-          "value": "1. Créez un fichier `test.c` :"
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "value": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Test C OK\\n\");\n    return 0;\n}"
-        },
-        {
-          "type": "text",
-          "value": "2. Compilez :\n   `gcc test.c -o test`\n3. Exécutez :\n   `./test` (Linux/macOS)\n   `test.exe` (Windows)"
-        },
-        {
-          "type": "exercise",
-          "value": "Modifiez le programme pour afficher votre prénom et compilez-le à nouveau."
-        },
-        {
-          "type": "title",
-          "value": "Résumé de la leçon"
-        },
-        {
-          "type": "text",
-          "value": "- GCC est le compilateur le plus courant.\n- Les étapes d’installation varient selon le système.\n- Vérifier la version de GCC est une bonne pratique.\n- Un éditeur adapté accélère l’apprentissage."
-        }
-      ]
-    },
-    {
-      "lessonId": "l3",
-      "title": "Structure minimale d’un programme C",
-      "content": [
-        {
-          "type": "title",
-          "value": "Comprendre la structure de base"
-        },
-        {
-          "type": "text",
-          "value": "Un programme C comporte toujours une **fonction principale** appelée `main`, qui sert de point d’entrée à l’exécution. Cette fonction peut être précédée d’instructions de préprocesseur comme `#include` pour inclure des bibliothèques."
-        },
-        {
-          "type": "note",
-          "value": "Sans `main`, le compilateur ne saura pas où commencer l’exécution de votre programme."
-        },
-        {
-          "type": "title",
-          "value": "Exemple minimal"
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "value": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, world!\\n\");\n    return 0;\n}"
-        },
-        {
-          "type": "text",
-          "value": "Voici les éléments clés :\n- `#include <stdio.h>` : rend disponible la fonction `printf`.\n- `int main(void)` : point d’entrée du programme.\n- `return 0;` : signale au système que tout s’est bien passé."
-        },
-        {
-          "type": "warning",
-          "value": "Oublier le `;` à la fin d’une instruction est une cause fréquente d’erreur."
-        },
-        {
-          "type": "title",
-          "value": "Flux d’exécution"
-        },
-        {
-          "type": "text",
-          "value": "L’exécution commence à `main`, se poursuit ligne par ligne et se termine lorsque la fonction atteint `return` ou la fin du bloc."
-        },
-        {
-          "type": "note",
-          "value": "En C, un programme peut contenir plusieurs fonctions, mais `main` sera toujours appelée en premier."
-        },
-        {
-          "type": "exercise",
-          "value": "Créez un programme qui affiche deux lignes différentes, par exemple : \"Bonjour\" puis \"Bienvenue dans le C\".",
-          "indication": " "
+          "lessonId": "l3",
+          "title": "Introduction à la mémoire et aux pointeurs",
+          "content": [
+            {
+              "type": "title",
+              "value": "L’adresse mémoire"
+            },
+            {
+              "type": "text",
+              "value": "Chaque variable a une *adresse* en mémoire. Vous pouvez l’obtenir grâce à l’opérateur `&`."
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "int age = 21;\nprintf(\"Adresse de age: %p\\n\", &age);"
+            },
+            {
+              "type": "title",
+              "value": "Les pointeurs"
+            },
+            {
+              "type": "text",
+              "value": "Un **pointeur** est une variable qui contient l’adresse d’une autre variable. Il est déclaré avec `*`."
+            },
+            {
+              "type": "code",
+              "language": "c",
+              "value": "int age = 21;\nint *ptr = &age;\nprintf(\"Valeur pointée: %d\\n\", *ptr);"
+            },
+            {
+              "type": "note",
+              "value": "Les pointeurs sont puissants mais dangereux : une mauvaise manipulation peut causer des erreurs de segmentation."
+            },
+            {
+              "type": "exercise",
+              "value": "Écrivez un programme qui déclare une variable `note`, crée un pointeur vers elle, et affiche sa valeur et son adresse."
+            }
+          ]
         }
       ]
     }
-
   ]
 }
