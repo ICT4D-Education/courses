@@ -10,148 +10,230 @@
   "lessons": [
     {
       "lessonId": "l0",
-      "title": "Avant de commencer — prérequis et objectifs",
+      "title": "Avant de commencer — prérequis, progression et objectifs",
       "content": [
         { "type": "title", "value": "Avant de commencer" },
-        { "type": "text", "value": "Cette première leçon explique **ce que vous devez savoir** pour suivre ce chapitre et **ce que vous allez apprendre**. L'approche est progressive : du niveau débutant (L1) vers des notions un peu plus avancées (L2)." },
-        { "type": "smallTitle", "value": "Prérequis" },
-        { "type": "text", "value": "Aucun prérequis en C n'est nécessaire. Idéalement :\n- Connaître les bases de l'informatique (fichiers, terminal). \n- Savoir ouvrir un terminal et exécuter des commandes simples.\n- Avoir installé un compilateur (GCC ou Clang) ou être prêt à l'installer." },
+        { "type": "text", "value": "Ce chapitre pose les fondations : concepts, outils et bonnes pratiques nécessaires pour écrire, compiler et exécuter des programmes en C. La progression est conçue pour accompagner un étudiant du niveau L1 jusqu'à L2 : on commence par l'essentiel et on ajoute de la profondeur." },
+        { "type": "smallTitle", "value": "Prérequis techniques et pédagogiques" },
+        { "type": "text", "value": "- Savoir ouvrir un terminal et exécuter des commandes de base.\n- Connaissances informatiques minimales (fichiers, notions de programme et d'exécution).\n- Avoir accès à une machine avec un compilateur (GCC ou clang) ou une VM/instance cloud." },
+        { "type": "smallTitle", "value": "Pré-requis pédagogiques (liens entre chapitres)" },
+        { "type": "text", "value": "Avant d'aborder les chapitres suivants il est utile d'avoir lu les sections théoriques précédentes ou d'avoir des connaissances équivalentes : par exemple la notion de variable (sera approfondie au ch2) et la gestion de l'environnement (éditeurs, terminal) qui s'apprend ici." },
         { "type": "smallTitle", "value": "Objectifs du chapitre" },
-        { "type": "text", "value": "À la fin de ce chapitre vous serez capable de :\n- Expliquer rapidement l'histoire et l'intérêt du langage C.\n- Compiler et exécuter un programme C depuis le terminal.\n- Écrire un programme minimal correctement structuré.\n- Connaître les outils et flags de base pour développer en C." },
-        { "type": "smallTitle", "value": "Comment utiliser ce chapitre" },
-        { "type": "text", "value": "Suivez les leçons dans l'ordre. Chaque leçon propose : une explication, un exemple de code, un ou plusieurs exercices et au moins un quiz pour vérifier la compréhension. Pour les exercices, essayez d'abord vous-même ; les *indications* vous orienteront sans donner la solution complète." },
-        { "type": "quiz", "question": "Quel prérequis est recommandé avant de commencer ce chapitre ?", "options": ["Connaître le langage Python", "Avoir un compilateur installé ou savoir ouvrir un terminal", "Savoir utiliser Git uniquement"], "answer": 1, "explanation": "L'important est de pouvoir compiler et exécuter du code C, donc avoir un compilateur ou un accès à un terminal est recommandé." }
+        { "type": "text", "value": "À la fin de ce chapitre vous devrez :\n1. Expliquer ce qu'est le langage C et ses usages.\n2. Compiler et exécuter un programme simple.\n3. Connaître la chaîne de compilation et flags utiles.\n4. Utiliser les outils de base pour déboguer et détecter des fuites mémoire.\n5. Appliquer des bonnes pratiques de style et d'organisation." },
+        { "type": "note", "value": "Ce chapitre inclut des exercices pratiques et des quiz pour valider la compréhension. Les indications fournies aident sans livrer la solution complète immédiatement." },
+        {
+          "type": "quiz",
+          "question": "Quel item est un prérequis recommandé pour suivre ce chapitre ?",
+          "options": [
+            "Savoir programmer en C++",
+            "Accès à un terminal et/ou compilateur",
+            "Avoir lu un livre sur l'OS interne du processeur"
+          ],
+          "answer": 1,
+          "explanation": "L'essentiel est de pouvoir compiler et exécuter du code ; un terminal et un compilateur sont requis."
+        }
       ],
-      "minTimeRead": "4",
+      "minTimeRead": "5",
       "difficulty": "EASY"
     },
+
     {
       "lessonId": "l1",
-      "title": "Pourquoi apprendre le C — contexte et pérennité",
+      "title": "Contexte, historique et domaines d'application",
       "content": [
-        { "type": "title", "value": "Pourquoi le C reste pertinent" },
-        { "type": "text", "value": "Le langage **C** est une base solide : il donne une compréhension profonde de la mémoire, de la compilation et du comportement bas niveau des programmes. Ces connaissances sont transférables à de nombreux domaines (systèmes, embarqué, performance, compilation, moteurs de jeu)." },
-        { "type": "note", "value": "L'objectif pédagogique est de comprendre *le pourquoi* et *le comment* — pas seulement d'apprendre la syntaxe." },
-        { "type": "smallTitle", "value": "Points clés" },
-        { "type": "text", "value": "• Simplicité du cœur du langage (peu de mots-clés) ;\n• Contrôle fin de la mémoire (allocation manuelle) ;\n• Utilisé dans des composants critiques (noyaux, drivers, runtimes)." },
-        { "type": "warning", "value": "Le C expose des concepts dangereux (pointeurs, mémoire non gérée). L'apprentissage doit être progressif et accompagné de bonnes pratiques." },
-        { "type": "exercise", "value": "Écrivez en 2–3 lignes pourquoi, selon vous, apprendre le C peut aider à mieux comprendre un autre langage (ex. Python ou Java).", "indication": "Concentrez-vous sur la gestion de la mémoire et le modèle d'exécution." },
-        { "type": "quiz", "question": "Lequel des éléments suivants est une caractéristique centrale du C ?", "options": ["Gestion automatique de la mémoire (GC)", "Contrôle bas niveau de la mémoire", "Orienté objet intrinsèquement"], "answer": 1, "explanation": "Le C donne un contrôle bas niveau sur la mémoire (allocation manuelle), contrairement aux langages avec GC." }
-      ],
-      "minTimeRead": "6",
-      "difficulty": "EASY"
-    },
-    {
-      "lessonId": "l2",
-      "title": "Chaîne de compilation : du source à l'exécutable",
-      "content": [
-        { "type": "title", "value": "Quelles étapes entre le fichier `.c` et le binaire ?" },
-        { "type": "text", "value": "La chaîne de compilation est composée de plusieurs étapes distinctes et reproductibles :\n1. **Préprocessing** : directives `#include`, `#define` sont traitées.\n2. **Compilation** : chaque fichier `.c` est transformé en `.o` (objet).\n3. **Linking** : les objets sont liés pour produire l'exécutable." },
-        { "type": "code", "language": "bash", "value": "gcc -std=c11 -Wall -Wextra -c main.c -o main.o\ngcc main.o -o main" },
-        { "type": "note", "value": "Utilisez `-c` pour compiler sans lier. `-Wall -Wextra` active des warnings utiles." },
-        { "type": "smallTitle", "value": "Flags utiles" },
-        { "type": "text", "value": "- `-std=c11` : spécifie la norme C utilisée.\n- `-Wall -Wextra` : active les warnings.\n- `-g` : inclut les symboles pour le debug.\n- `-O2` : optimisation en release." },
-        { "type": "exercise", "value": "Créez deux fichiers `a.c` et `b.c`, compilez-les séparément en `.o`, puis liez-les ensemble pour produire un exécutable.", "indication": "Exemple : `gcc -c a.c -o a.o` puis `gcc a.o b.o -o program`." },
-        { "type": "quiz", "question": "Que fait l'option `-c` de gcc ?", "options": ["Compile uniquement en produisant un objet (.o)", "Compile et lie pour produire un exécutable", "Nettoie les fichiers temporaires"], "answer": 0, "explanation": "`-c` signifie compile sans lier, produisant des fichiers objet (.o)." }
-      ],
-      "minTimeRead": "9",
-      "difficulty": "EASY"
-    },
-    {
-      "lessonId": "l3",
-      "title": "Premier programme — structure et explications pas à pas",
-      "content": [
-        { "type": "title", "value": "Écrire un programme minimal" },
-        { "type": "text", "value": "Nous allons écrire et comprendre un programme minimal qui s'exécute depuis la ligne de commande. Chaque élément est expliqué." },
-        { "type": "code", "language": "c", "value": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Bonjour, monde !\\n\");\n    return 0;\n}" },
-        { "type": "smallTitle", "value": "Décomposition" },
-        { "type": "text", "value": "- `#include <stdio.h>` : inclusion des déclarations d'entrée/sortie.\n- `int main(void)` : point d'entrée du programme.\n- `printf` : fonction d'affichage.\n- `return 0;` : valeur de sortie (0 signifie succès)." },
-        { "type": "note", "value": "Vous pouvez compiler avec : `gcc -std=c11 -Wall -Wextra main.c -o main` et l'exécuter avec `./main`." },
-        { "type": "exercise", "value": "Modifiez le programme pour afficher votre nom et l'heure actuelle (au format simple).", "indication": "Utilisez `printf` et la chaîne de format pour afficher plusieurs valeurs." },
-        { "type": "quiz", "question": "Quel est le rôle de `return 0;` dans `main` ?", "options": ["Indiquer une erreur", "Indiquer un succès", "Arrêter le processeur"], "answer": 1, "explanation": "La valeur retournée par `main` est transmise au système d'exploitation ; 0 indique succès." }
+        { "type": "title", "value": "Contexte et histoire du C" },
+        { "type": "text", "value": "Le langage C a été conçu pour donner un contrôle direct sur le matériel tout en restant relativement simple. Sa conception facilite la lecture du code machine conceptuel et la portabilité à travers différents systèmes. Comprendre l'histoire aide à saisir pourquoi certaines conventions existent (ex : gestion manuelle de la mémoire)." },
+        { "type": "smallTitle", "value": "Domaines d'application" },
+        { "type": "text", "value": "C est majoritairement utilisé pour :\n- systèmes d'exploitation et noyaux,\n- développement embarqué et firmware,\n- bibliothèques performantes et moteurs (game engines),\n- compilateurs et outils bas-niveau." },
+        { "type": "note", "value": "Les principes appris en C sont transférables vers beaucoup de technologies : compréhension de la mémoire, performance, modèles d'exécution." },
+        { "type": "exercise", "value": "Rédigez 3 cas concrets (en 1–2 phrases chacun) où le C est un meilleur choix que Python.", "indication": "Pensez à latence, accès direct à la mémoire et taille binaire." },
+        {
+          "type": "quiz",
+          "question": "Dans quel domaine le C est-il historiquement et couramment utilisé ?",
+          "options": [
+            "Développement front-end web",
+            "Noyaux et drivers",
+            "Analyse de données (machine learning)"
+          ],
+          "answer": 1,
+          "explanation": "Le C est un langage bas-niveau très utilisé pour les noyaux et drivers."
+        }
       ],
       "minTimeRead": "8",
       "difficulty": "EASY"
     },
+
+    {
+      "lessonId": "l2",
+      "title": "Structure d'un programme C et conventions de base",
+      "content": [
+        { "type": "title", "value": "Anatomie d'un programme C" },
+        { "type": "text", "value": "Un programme C contient généralement : déclarations (`#include`), fonctions, et le point d'entrée `main`. Respecter la structure facilite la lecture, le débogage et la maintenance." },
+        { "type": "code", "language": "c", "value": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Bonjour, monde !\\n\");\n    return 0;\n}" },
+        { "type": "smallTitle", "value": "Explication pas à pas" },
+        { "type": "text", "value": "- `#include <stdio.h>` : inclusion des prototypes d'entrées/sorties.\n- `int main(void)` : signature standard du point d'entrée.\n- `printf` : fonction d'affichage.\n- `return 0;` : convention indiquant un succès." },
+        { "type": "note", "value": "Utilisez des commentaires courts pour expliquer l'intention (// ou /* ... */). Evitez le commentaire redondant." },
+        { "type": "exercise", "value": "Modifiez le programme pour afficher votre prénom et un message différent sur deux lignes.", "indication": "Utilisez deux appels à printf ou un seul avec '\\n'." },
+        {
+          "type": "quiz",
+          "question": "Quelle convention indique que le programme s'est terminé correctement ?",
+          "options": [
+            "return 0;",
+            "exit(1);",
+            "printf(\"OK\");"
+          ],
+          "answer": 0,
+          "explanation": "Par convention, `return 0;` indique au système que le programme a réussi."
+        }
+      ],
+      "minTimeRead": "9",
+      "difficulty": "EASY"
+    },
+
+    {
+      "lessonId": "l3",
+      "title": "Chaîne de compilation : préprocesseur, compilation et linkage",
+      "content": [
+        { "type": "title", "value": "Comprendre chaque étape" },
+        { "type": "text", "value": "La transformation source → exécutable passe par : préprocessing (gestion des macros et includes), compilation (génération d'objets .o), et linking (assemblage final). Chacune a ses artefacts et outils pour inspection." },
+        { "type": "smallTitle", "value": "Commandes de base (gcc)" },
+        { "type": "code", "language": "bash", "value": "gcc -std=c11 -Wall -Wextra -c main.c -o main.o\ngcc main.o -o main" },
+        { "type": "note", "value": "Le flag `-c` compile sans lier ; `-Wall -Wextra` affiche des warnings utiles ; `-std=c11` fixe la norme." },
+        { "type": "smallTitle", "value": "Inspecter les étapes" },
+        { "type": "text", "value": "Vous pouvez demander au compilateur de produire les sorties intermédiaires (préprocessed) : `gcc -E main.c -o main.i`." },
+        { "type": "exercise", "value": "Produisez le fichier préprocessed `main.i` et inspectez-le pour voir les résultats de `#include`.", "indication": "Utilisez `gcc -E main.c -o main.i` puis ouvrez main.i dans l'éditeur." },
+        {
+          "type": "quiz",
+          "question": "Quelle commande produit le fichier préprocessed ?",
+          "options": [
+            "gcc -E main.c -o main.i",
+            "gcc -c main.c -o main.o",
+            "gcc main.o -o main"
+          ],
+          "answer": 0,
+          "explanation": "`-E` demande le préprocessing uniquement."
+        }
+      ],
+      "minTimeRead": "10",
+      "difficulty": "EASY"
+    },
+
     {
       "lessonId": "l4",
-      "title": "Environnement et outils : éditeurs, terminal et debugger",
+      "title": "Flags utiles, optimisation et mode debug",
       "content": [
-        { "type": "title", "value": "Choisir un éditeur et configurer un environnement" },
-        { "type": "text", "value": "Utilisez un éditeur confortable (VS Code, CLion, Vim, Emacs) et installez les extensions C/C++ pour la coloration et le linting. Avoir un terminal intégré facilite les tests rapides." },
-        { "type": "smallTitle", "value": "Debugging de base" },
-        { "type": "text", "value": "Pour le debugging, compilez avec `-g` et utilisez `gdb` :\n`gcc -g main.c -o main` puis `gdb ./main`." },
-        { "type": "code", "language": "bash", "value": "gcc -g -std=c11 main.c -o main\ngdb ./main\n# Dans gdb : run, break main, next, print var" },
-        { "type": "note", "value": "Les IDE modernes proposent des intégrations graphiques pour gdb ou lldb (Xcode, CLion, VS Code avec l'extension C/C++)." },
-        { "type": "exercise", "value": "Installez VS Code et l'extension C/C++. Configurez un lancement (launch configuration) pour lancer gdb depuis l'IDE.", "indication": "Cherchez 'C++ (GDB/LLDB)' dans les configurations de VS Code." },
-        { "type": "quiz", "question": "Quel flag permet d'ajouter des symboles de debug ?", "options": ["-O2", "-g", "-Wall"], "answer": 1, "explanation": "Le flag `-g` inclut les symboles nécessaires au debugging." }
+        { "type": "title", "value": "Choisir les bons flags" },
+        { "type": "text", "value": "Pendant le développement, privilégiez `-g` (debug) et `-O0` (pas d'optimisation) pour faciliter le debugging. Pour la production, utilisez `-O2` ou `-O3` selon vos besoins et tests." },
+        { "type": "code", "language": "bash", "value": "gcc -std=c11 -Wall -Wextra -g -O0 main.c -o main # dev\ngcc -std=c11 -O2 main.c -o main # release" },
+        { "type": "note", "value": "Les optimisations peuvent réorganiser le code et rendre le debugging plus difficile (variables optimisées/enregistrées)." },
+        { "type": "exercise", "value": "Compilez un programme simple avec `-g` et lancez-le dans gdb ; placez un breakpoint dans `main` et inspectez une variable.", "indication": "gdb ./main ; break main ; run ; print var" },
+        {
+          "type": "quiz",
+          "question": "Quel flag ajoute des symboles de debug dans le binaire ?",
+          "options": ["-O2", "-g", "-Wall"],
+          "answer": 1,
+          "explanation": "Le flag `-g` inclut des symboles de debug pour les outils comme gdb."
+        }
       ],
       "minTimeRead": "7",
       "difficulty": "EASY"
     },
+
     {
       "lessonId": "l5",
-      "title": "Bonnes pratiques initiales et style de code",
+      "title": "Éditeurs, extensions et workflow (IDE vs terminal)",
       "content": [
-        { "type": "title", "value": "Lisibilité et conventions" },
-        { "type": "text", "value": "Adoptez des conventions : noms explicites, fonctions courtes, commentaires là où c'est nécessaire. Indentez de façon cohérente (4 espaces ou tab selon l'équipe)." },
-        { "type": "smallTitle", "value": "Utiliser les warnings" },
-        { "type": "text", "value": "Activez `-Wall -Wextra` et corrigez les warnings : ils évitent des erreurs futures. Faites des builds fréquents." },
-        { "type": "warning", "value": "Ignorer les warnings peut conduire à des bugs difficiles à traquer." },
-        { "type": "exercise", "value": "Prenez un ancien programme et compilez-le avec `-Wall -Wextra`. Corrigez les warnings majeurs.", "indication": "Les warnings typiques : variables non utilisées, conversions implicites, format `%d` vs `%ld`." },
-        { "type": "quiz", "question": "Pourquoi activer `-Wall -Wextra` pendant le développement ?", "options": ["Pour améliorer les performances", "Pour détecter des erreurs potentielles et mauvaises pratiques", "Pour réduire la taille du binaire"], "answer": 1, "explanation": "Les warnings aident à repérer des erreurs potentielles et améliorent la qualité du code." }
+        { "type": "title", "value": "Choisir un workflow efficace" },
+        { "type": "text", "value": "Un bon workflow combine un éditeur puissant (VS Code, CLion, Vim) et des commandes terminal pour builder/tester. Les extensions de l'éditeur peuvent fournir linting, completion et intégration debug." },
+        { "type": "smallTitle", "value": "Conseils pratiques" },
+        { "type": "text", "value": "- Configurez des tâches (tasks) pour compiler automatiquement.\n- Utilisez des configurations de lancement pour déboguer depuis l'éditeur.\n- Versionnez votre code (git) et écrivez des commits atomiques." },
+        { "type": "note", "value": "Si vous travaillez en équipe, standardisez le style (clang-format) et fournissez un Makefile ou CMake pour la reproductibilité." },
+        { "type": "exercise", "value": "Créez un `Makefile` simple pour compiler un projet avec deux sources (main.c et util.c).", "indication": "Cible : `make all` pour compiler, `make clean` pour nettoyer." },
+        {
+          "type": "quiz",
+          "question": "Quel outil permet de standardiser le formatage du code C ?",
+          "options": ["clang-format", "eslint", "prettier"],
+          "answer": 0,
+          "explanation": "clang-format est conçu pour le code C/C++ et permet d'appliquer un style uniforme."
+        }
       ],
-      "minTimeRead": "6",
+      "minTimeRead": "8",
       "difficulty": "EASY"
     },
+
     {
       "lessonId": "l6",
-      "title": "Mini-projet : votre premier programme utile",
+      "title": "Debugging et outils pour la qualité du code",
       "content": [
-        { "type": "title", "value": "Objectif du mini-projet" },
-        { "type": "text", "value": "Réaliser un petit utilitaire en C qui lit une chaîne depuis l'entrée standard et affiche des statistiques simples (longueur, nombre de voyelles, nombre de mots)." },
-        { "type": "smallTitle", "value": "Étapes recommandées" },
-        { "type": "text", "value": "1) Écrire la fonctionnalité de lecture (fgets ou getline). \n2) Implémenter les compteurs (longueur, voyelles, mots). \n3) Afficher un rapport formaté.\n4) Gérer les erreurs d'entrée." },
-        { "type": "code", "language": "c", "value": "#include <stdio.h>\n#include <string.h>\n#include <ctype.h>\n\nint main(void) {\n    char buffer[1024];\n    if (!fgets(buffer, sizeof(buffer), stdin)) return 1;\n    size_t len = strlen(buffer);\n    // remove trailing newline\n    if (len && buffer[len-1] == '\\n') buffer[--len] = '\\0';\n    // ... calculs ...\n    printf(\"Longueur: %zu\\n\", len);\n    return 0;\n}" },
-        { "type": "exercise", "value": "Implémentez le mini-projet complet en C et testez différentes entrées.", "indication": "Commencez par écrire des fonctions petites et testables : `count_vowels`, `count_words`." },
-        { "type": "quiz", "question": "Quelle fonction peut être utilisée pour lire une ligne depuis stdin de façon simple ?", "options": ["scanf", "fgets", "system"], "answer": 1, "explanation": "`fgets` lit une ligne en limitant la taille du buffer et est plus sûre que `gets`." }
+        { "type": "title", "value": "gdb et exécution pas-à-pas" },
+        { "type": "text", "value": "gdb permet d'exécuter le programme pas à pas, d'inspecter les variables et de comprendre l'origine des crashs." },
+        { "type": "code", "language": "bash", "value": "gcc -g main.c -o main\ngdb ./main\n# Dans gdb : run ; break main ; next ; print var" },
+        { "type": "smallTitle", "value": "Détection des fuites mémoire (valgrind)" },
+        { "type": "text", "value": "Valgrind détecte fuites mémoire et accès invalides : `valgrind --leak-check=full ./main`." },
+        { "type": "note", "value": "Valgrind n'est pas disponible nativement sur toutes les plateformes (ex : Windows). Utilisez des outils alternatifs ou des environnements Linux." },
+        { "type": "exercise", "value": "Introduisez volontairement une fuite mémoire (malloc sans free) et analysez le rapport valgrind.", "indication": "Comparez la sortie avant/après correction." },
+        {
+          "type": "quiz",
+          "question": "Quel outil est le plus adapté pour détecter fuites mémoire sous Linux ?",
+          "options": ["gdb", "valgrind", "strace"],
+          "answer": 1,
+          "explanation": "Valgrind est dédié à la détection de fuites mémoire et d'accès invalides."
+        }
       ],
-      "minTimeRead": "18",
+      "minTimeRead": "12",
       "difficulty": "MEDIUM"
     },
+
     {
       "lessonId": "l7",
-      "title": "Erreurs courantes et comment les diagnostiquer",
+      "title": "Mini-projet guidé : utilitaire d'analyse de texte",
       "content": [
-        { "type": "title", "value": "Types d'erreurs fréquentes" },
-        { "type": "text", "value": "Les erreurs communes débutent souvent par :\n- erreurs de compilation (typo, prototypes manquants),\n- warnings ignorés,\n- erreurs d'exécution (segfault),\n- mauvaise gestion des buffers (overflow)." },
-        { "type": "note", "value": "Utilisez `valgrind` pour détecter les fuites mémoire et les accès invalides (sur Linux)." },
-        { "type": "code", "language": "bash", "value": "valgrind --leak-check=full ./main" },
-        { "type": "warning", "value": "Les accès hors limites (`buffer overflow`) provoquent un comportement indéfini ; ne les ignorez pas." },
-        { "type": "exercise", "value": "Créez volontairement une erreur (par exemple accès hors buffer) et analysez-la avec gdb/valgrind.", "indication": "Compilez avec `-g` pour obtenir plus d'informations du debugger." },
-        { "type": "quiz", "question": "Quel outil est adapté pour détecter les fuites mémoire sous Linux ?", "options": ["gdb", "valgrind", "strace"], "answer": 1, "explanation": "Valgrind est conçu pour détecter fuites mémoire et accès invalides." }
+        { "type": "title", "value": "Objectif du mini-projet" },
+        { "type": "text", "value": "Écrire un programme qui lit une ligne depuis stdin et affiche : longueur (sans \\n), nombre de mots et nombre de voyelles. L'accent est mis sur la robustesse (gestion des limites de buffer) et la modularité (fonctions séparées)." },
+        { "type": "smallTitle", "value": "Plan recommandé" },
+        { "type": "text", "value": "1) Définir une fonction `read_line` sûre.\n2) Implémenter `count_words`, `count_vowels`, `strlen_safe`.\n3) Écrire des tests manuels (entrées variées) et vérifier les résultats." },
+        { "type": "code", "language": "c", "value": "#include <stdio.h>\n#include <string.h>\n#include <ctype.h>\n\nint count_vowels(const char *s) {\n    int count = 0; while (*s) { char c = tolower((unsigned char)*s++); if (c=='a'||c=='e'||c=='i'||c=='o'||c=='u'||c=='y') count++; } return count; }\n\nint main(void) {\n    char buf[1024];\n    if (!fgets(buf, sizeof(buf), stdin)) return 1;\n    size_t len = strlen(buf); if (len && buf[len-1]=='\\n') buf[--len]='\\0';\n    printf(\"Longueur: %zu\\n\", len);\n    printf(\"Voyelles: %d\\n\", count_vowels(buf));\n    return 0;\n}" },
+        { "type": "exercise", "value": "Implémentez le programme complet et ajoutez la détection du nombre de mots.", "indication": "Pour compter les mots, parcourez la chaine et comptez les transitions non-espace → espace." },
+        {
+          "type": "quiz",
+          "question": "Quelle fonction est plus sûre pour lire une ligne dans un buffer de taille fixe ?",
+          "options": ["gets", "fgets", "scanf(\"%s\")"],
+          "answer": 1,
+          "explanation": "`fgets` permet de limiter la lecture à la taille du buffer et évite les débordements."
+        }
+      ],
+      "minTimeRead": "20",
+      "difficulty": "MEDIUM"
+    },
+
+    {
+      "lessonId": "l8",
+      "title": "Erreurs courantes et checklist de fin de chapitre",
+      "content": [
+        { "type": "title", "value": "Pièges, erreurs et comment les éviter" },
+        { "type": "text", "value": "Liste non exhaustive :\n- Oublier de libérer la mémoire allouée (memory leak).\n- Accéder hors limites (buffer overflow).\n- Utiliser des formats `printf` incorrects (`%d` vs `%ld`).\n- Ignorer les warnings du compilateur." },
+        { "type": "warning", "value": "Ne jamais ignorer les warnings importants : ils préviennent souvent de problèmes réels." },
+        { "type": "smallTitle", "value": "Checklist de validation" },
+        { "type": "text", "value": "1) Tous les programmes compilent avec `-Wall -Wextra` sans erreurs bloquantes.\n2) Les tests manuels du mini-projet couvrent cas limites (string vide, très long, caractères spéciaux).\n3) Le code est formaté et commenté lorsque nécessaire.\n4) Les erreurs de ressources (fopen, malloc) sont gérées." },
+        { "type": "exercise", "value": "Faites passer votre mini-projet par la checklist et corrigez tous les items manquants.", "indication": "Ajoutez des vérifications `if (ptr==NULL)` après malloc et testez." },
+        {
+          "type": "quiz",
+          "question": "Que devez-vous faire après avoir alloué une zone mémoire avec malloc ?",
+          "options": [
+            "Rien, le système la libère automatiquement",
+            "Tester le pointeur et appeler free() quand vous avez fini",
+            "Utiliser strcpy sans vérification"
+          ],
+          "answer": 1,
+          "explanation": "Après malloc il faut vérifier que le pointeur n'est pas NULL et libérer la mémoire avec free() lorsqu'elle n'est plus utile."
+        }
       ],
       "minTimeRead": "9",
       "difficulty": "MEDIUM"
-    },
-    {
-      "lessonId": "l8",
-      "title": "Résumé, checklist et ressources",
-      "content": [
-        { "type": "title", "value": "Résumé du chapitre" },
-        { "type": "text", "value": "Dans ce chapitre vous avez :\n- découvert la motivation et la pérennité du C ;\n- appris la chaîne de compilation ;\n- écrit et exécuté un programme minimal ;\n- installé des outils et lancé un mini-projet." },
-        { "type": "smallTitle", "value": "Checklist (à valider)" },
-        { "type": "text", "value": "1. J'ai compilé un programme avec `gcc`.\n2. J'ai utilisé `-Wall -Wextra` pour corriger les warnings.\n3. J'ai débogué un programme simple avec `gdb`.\n4. J'ai écrit et testé le mini-projet." },
-        { "type": "smallTitle", "value": "Ressources recommandées" },
-        { "type": "text", "value": "- Documentation C standard (ISO/C) ;\n- Tutoriels ciblés : manpages (`man gcc`, `man printf`) ;\n- Outils : `gdb`, `valgrind`, Visual Studio Code (extension C/C++)" },
-        { "type": "exercise", "value": "Présentez en 3–5 lignes ce que vous avez appris et ce que vous souhaitez approfondir.", "indication": "Ciblez un point concret (ex : gestion de la mémoire ou debugging)." },
-        { "type": "quiz", "question": "Quelle est la bonne séquence de la chaîne de compilation ?", "options": ["Linking -> Compilation -> Preprocessing", "Preprocessing -> Compilation -> Linking", "Compilation -> Preprocessing -> Linking"], "answer": 1, "explanation": "La séquence correcte est Preprocessing -> Compilation -> Linking." }
-      ],
-      "minTimeRead": "5",
-      "difficulty": "EASY"
     }
   ]
 }
+
 
   ]
 }
